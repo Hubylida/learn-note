@@ -1,0 +1,40 @@
+数据类型有五种
+String Number Boolean Null Undefined
+typeof 是用来检测数据类型的一种操作符，不是函数
+typeof null 返回object
+undefined 是一个值。
+var message ;
+console.log(message == undefined);   //true
+未经赋值的变量的值为undefined
+var message;   message已经声明
+var message    message没有声明
+两者差一个分号结束
+null表示一个空对象指针。
+检查null值就可以知道相应的变量是否保存了一个对象的引用
+if(car != null){
+     //对car对象执行某些操作
+}
+boolean类型
+true不一定等于1
+false不一定等于0
+任何涉及NaN的操作都会返回NaN
+NaN与任何值都不相等，包括NaN本身
+Number()函数可以用于任何数据类型转换称数字
+parseInt函数和parseFloat专门把字符串转化为数值
+var num1 = parseInt("1234blue");     //1234
+从第一个数字开始解析，到不是数字，只会返回1234
+var num2 = parseInt("");            //NaN
+var num3 = parseInt("0xA");         //10(十六进制)
+var num4 = parseInt(22.5);          //22
+var num5 = parseInt("070");         //56(八进制)
+ECMAScript5不具有解析八进制的能力 因此num5会被解析为70
+parseInt接受第二个参数，第二个参数指定进制
+var num = parseInt("10",2);      //2
+数值，布尔值，对象都有toString()方法，但null和undefined没有这个方法
+对象的属性和方法：
+hasOwnProperty(propertyName) 检查给定属性在当前对象实例中是否存在，作为参数的属性名(propertyName)必须以字符串形式。
+例如：o.hasOwnProperty("name");
+isprototypeOf(object)：用于检查传入对象是否是当前对象的原型
+propertyIsEnumberable(propertyName):用于检查传入对象是否可以用for-in枚举，作为参数的属性名必须以字符串的形式指定
+toLocaleString():返回对象的字符串表示
+valueOf():返回对象的字符串，数值或布尔值表示。

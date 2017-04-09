@@ -1,0 +1,19 @@
+function(num1,num2){}
+arguments是一个类数组，存放function的参数
+length=2
+arguments[0]=num1
+arguments[1]=num2
+arguments的值可以更改，当值更改时，num1或者num2的值也随之更改
+function f(num1,num2){
+     arguments[1]=10;
+     console.log(arguments[0]+num2);
+}
+上面这个函数的第二个参数被改为10，num2的值也改为10
+在ECMAScript中定义了两个名字相同的函数，该名字只属于后定义的函数
+function add(num){
+     return num + 100;
+}
+function add(num){
+     return num + 200;
+}
+var result = add(100);   //300

@@ -1,0 +1,29 @@
+http(HyperText Transfer Protocol)   超文本传输协议
+Tcp/Ip 传输控制协议，定义了主机如何连入因特网及数据如何在它们之间传递的标准。
+分为四层
+1. 应用层  FTP/DNS/HTTP
+2.传输层   TCP/UDP
+3.网络层   数据包
+4.数据链路层  处理连接设备的硬件设备
+大致过程
+域名解析-->
+发起TCP的三次握手-->
+建立TCP连接后发起http请求-->
+服务器响应http请求，浏览器得到html代码-->
+浏览器解析html代码-->
+浏览器渲染
+http的默认端口号是80
+https的默认端口号是443
+注：http是无状态的协议，同一个客户端的这次请求和上次请求是没有关联的
+cookie技术
+http请求
+get:请求一个完整资源
+post：提交表单
+delete：删除
+状态码
+200 OK
+304 Not Modified 未修改，本地缓存的文件和服务器上比较时，未修改
+404 Not Found 请求的URL资源不存在  (客户端错误)
+500 Internal Server Error 服务器吗内部错误
+502 Bad Gateway 前面代理服务器联系不到后端的服务器
+504 Gateway Timeout  代理能联系到后端的服务器，但是后端的服务器并没有给代理响应

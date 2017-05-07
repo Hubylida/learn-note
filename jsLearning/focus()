@@ -1,0 +1,31 @@
+一. onfocus（获得焦点事件）
+当一个文本框获得焦点时，它里面的文本就像“好123”网站上的百度搜索输入框那样全部被自动选中，这样的操作可以利用onfocus来实现。
+以下的文本框，当鼠标指针移过去时，里面的文字全部被选中：
+请输入网址
+这是怎么做的呢？看以下代码及解释：
+<input type="text"name="url" value="http://www.gxblk.com" size="30"onmousemove="this.focus();this.select();">
+代码里，input标签内嵌入了onmousemove（鼠标指针经过）事件的JS语句，其等号后面的this.focus()意为其自身获得焦点；获得焦点的标志是该文本框内将出现输入光标，但要让其内的文字全部被选中，我们还得用上this.select()语句，它的意思就是选中全部文本框里的文字。
+二. onblur（失去焦点事件）
+我们经常会检测文本框是否已经被正确输入，检测工作通常在用户点击了提交按钮之后进行，事实上，利用控件失去焦点的时候，我们就可以实时进行这个检测工作，这样的话，onblur事件就派上用场了。
+以下例子有四个文本框，如果还没有任何单击它们当中的任意一个的操作，那么什么事情也不会发生，但是，当你单击了其中的任何一个使其拥有了焦点（输入光标在里面），如果什么都没有输入并且单击了别的地方令其失去焦点，就会弹出一个警告，试试看
+姓名
+性别
+年龄
+住址
+以下是代码和解释：
+表单代码
+<form name="blur_test">
+   <p>姓名 <input type="text" name="name"value="" size="30"onblur="chkvalue(this)"><br>
+    性别 <inputtype="text" name="sex" value=""size="30" onblur="chkvalue(this)"><br>
+    年龄 <inputtype="text" name="age" value=""size="30" onblur="chkvalue(this)"><br>
+    住址 <inputtype="text" name="addr" value=""size="30" onblur="chkvalue(this)"></p>
+</form>
+JS代码
+<scriptlanguage="JavaScript">
+ 
+function chkvalue(txt) {
+   if(txt.value=="") alert("文本框里必须填写内容!");
+}
+ 
+</script>
+        表单代码里，每一个方框框的代码都嵌入一个onblur JS语句，它们都调用后面的JS代码中的自定义函数chkvalue(this)，意思是，当文本框失去焦点时就调用chkvalue()函数；这chkvalue()函数检测文本框是否为空，如果是就弹出警告窗口。该函数有一个参数（txt），对应于前面文本框调用该函数的参数（this）即自身。

@@ -1,0 +1,96 @@
+第一种：直接在标签内部
+<input type="button" id="btn" onclick="f()">
+function f(){
+     alert("hello");
+}
+<input type="button" id="btn" onclick="alert('hello')">
+<input type="button" id="btn">
+document.getElementById("btn").onclick=function (){
+     alert("hello");
+}
+第二种：绑定函数，本节重点啦
+addEventListener
+target.addEventListener(type,listener,useCapture);
+target:表示要监听事件的目标对象，可以是一个文档上的元素Document本身
+type: 表示事件类型，字符串形式，也就是说要有引号  "click","change"
+listener:当事件发生时，实现eventListener接口的一个对象或函数
+useCapture: 设置事件捕获或者冒泡，true:捕获，false:冒泡，默认为false
+
+<div id="clickme">CLICK ME</div>
+var clickme=document.getElementById("clickme");
+clickme.addEventListener('click',foo1);
+function foo1(event){
+     console.log(this.id);
+     console.log(event);
+}
+
+
+绑定多个函数 addEventListener可以给同一个dom元素绑定多个函数
+<div id="clickme">CLICK ME</div>
+var clickme=document.getElementById("clickme");
+clickme.addEventListener('click',foo1);
+clickme.addEventListener('click',foo2);
+function foo1(event){
+     console.log(111);
+}
+function foo2(event){
+     console.log(222);
+}
+
+
+//111
+  222
+按照绑定顺序执行两个函数，与useCapture无关(true,false)
+同一个dom元素绑定一个函数
+<div id="click">CLICK ME</div>
+<script>
+var clickme=document.getElementsById('clickme');
+clickme.addEventListener('click',foo);
+clickme.addEventListener('click',foo);
+function foo(event){
+     console.log(111);
+}
+</script>
+//111
+只执行了一次，重复绑定是没有用的
+换一种方式
+<div id="click">CLICK ME</div>
+<script>
+var clickme=document.getElementsById('clickme');
+clickme.addEventListener('click',foo,true);
+clickme.addEventListener('click',foo,false);
+function foo(event){
+     console.log(111);
+}
+</script>
+//111
+  111
+执行了两次
+事件的解绑
+第一种绑定，用dom.onclick= null;
+addEventListener绑定的事件使用removeEventListener来解绑
+接受的参数一样
+<div id="click">CLICK ME</div>
+<script>
+var clickme=document.getElementsById('clickme');
+clickme.addEventListener('click',foo);
+function foo(event){
+     console.log(111);
+}
+clickme.removeEventListener('click',foo);
+</script>
+阻止了冒泡，stopPropagation()
+<div id="wrap">
+<div id="clickme">CLICK ME</div>
+</div>
+document.getElementsById('wrap').addEventListener('click',foo1);
+document.getElementsById('clickme').addEventListener('click',foo2);
+function foo1(event){
+     console.log(111);
+}
+function foo2(event){
+     event.stopPropagation();
+     console.log(222);
+}
+console:
+222

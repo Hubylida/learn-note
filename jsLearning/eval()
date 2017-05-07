@@ -1,0 +1,18 @@
+eval()函数可以计算某个字符串，并执行其中的JavaScript代码。
+eval(string)
+string:要计算的字符串，必须是原始的字符串，不接受String对象
+非法调用时抛出EvalError异常
+eval("x=10;y=20;dcument.write(x*y)")   //200
+document.write(eval("2+2"))            //4
+var x=10
+document.write(eval(x+17));            //27
+eval("2+3")   //5
+var myeval = eval;    //可能会抛出EvalError异常
+myeval("2+3");     //可能会抛出EvalError异常
+可以使用下面这段代码来检测eval()参数是否合法:
+try{
+     alert("Result:" + eval(prompt("Enter an expression:","")));
+}
+catch(exception){
+     alert(exception);
+}

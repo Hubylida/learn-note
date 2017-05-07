@@ -1,0 +1,8 @@
+split()方法用于把一个字符串分割成字符串数组。
+var s="hubylida";
+var arr=s.split("");
+arr.reverse();
+console.log(arr);
+//["a", "d", "i", "l", "y", "b", "u", "h"]
+arr.join("");
+//adilybuh

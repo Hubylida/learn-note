@@ -1,0 +1,71 @@
+检测数组的方法
+instanceof
+if(value instanceof Array){
+     执行对数组的某些操作
+}
+转换方法
+toString()
+以逗号分隔的字符串
+var a = [1,2];
+console.log(a.toString());
+//1,2
+join()方法
+可以使用不同的分隔符来构建字符串
+var a = [1,2,3];
+a.join(" ")      //1 2 3
+a.join("#")      //1#2#3
+栈方法
+push()
+在数组的末尾插入，元素个数不限
+pop()
+移除数组末尾一个元素
+队列方法
+unshift()
+在数组的前端插入元素，个数不限，整体插入
+a=[];
+a.unshift(1,2)    //a=[1,2]而不是[2,1];
+shift()
+在数组的前端移除一个元素
+重排序方法
+reverse()  倒序排序
+sort()     排序，但受首字母大小写影响
+var a = [1,2,3];
+function compare(value1,value2){
+     if(value1<value2)
+          return -1;
+     if(value1>value2)
+          return 1;
+     return 0;
+}
+或
+function compare(value1,value2){
+     return value1-value2;
+}
+a.sort(compare);
+操作方法
+concat()方法会创建当前数组的的一个副本，将接收到的参数添加到这个副本的末尾，返回新建的数组。
+没有参数，concat()会复制当前数组并返回副本。
+slice()也是创建一个新的数组接受两个参数
+var a=[1,2,3,4,5,6,7,8];
+var b=a.slice(2,4);   //[3,4]
+slice()返回的是截取的项
+splice()方法
+删除 splice(0,2)会删除数组的前两项
+第一个参数指定从第一项的位置，第二个参数指定要删除的个数
+插入 提供三个参数
+splice(2,0,"red","green")
+会从当前位置2插入两项
+替换 splice(2,1,"red","green")
+三个参数：第一项的位置，要删除的项，要插入的项
+splice始终会返回一个数组，包含被删除的项
+位置方法
+indexOf()方法从数组的开头开始向后查找
+lastIndexOf()方法从数组的末尾开始查找
+var a=[1,2,3,4,5];
+var b=a.indexOf(2);    //b=1
+迭代方法
+every():对数组中的每一项运行给定函数，如果该函数每一项都返回true，则返回true
+some():对数组的每一项运行给定函数，如果该函数的任一项返回true，则返回true
+filter():对数组每一项运行给定函数，返回该函数会返回true的项组成的数组
+map():对数组的每一项运行给定函数，返回每次函数调用的结果组成的数组
+forEach():对数组中每一项运行给定函数，这个方法没有返回值

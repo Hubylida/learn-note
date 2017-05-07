@@ -1,46 +1,10 @@
-ctrl + d
-在有选中的状态下，快速选中下一个。
-ctrl + ,
-打开设置面板
-ctrl + up/down
-选中行上移，下移
-alt + g up/down
-到上一个/下一个修改处（来自git diff）
-ctrl + g
-进入行号t跳转面板
-ctrl + t
-进入文件跳转面板
-ctrl +shift + n
-新建界面窗口
-ctrl + n
-新建文件
-ctrl + o
-打开文件
-ctrl + shift + o
-打开文件夹
-ctrl + alt + o
-加载项目目录
-ctrl + shift + t
-重新加载上次项目
-ctrl + s
-保存文件
-ctrl + w
-关闭当前编辑文档
-ctrl + shift + w
-关闭编辑器
-ctrl + z
-撤销
-ctrl + shift + c
-复制文档路径
-ctrl + shift + p
-全局搜索面板
-ctrl + L
-选定一行
-ctrl + f
-从缓存器搜索
-ctrl + shift + i
-打开chrome调试器
-ctrl + /
-启用注释
-ctrl + tab
-切换编辑的标签页
+step1
+到github上搜索插件名，下载压缩包。
+step2
+解压到C:/用户/administrator/.atom/packages
+step3
+用命令行打开到插件文件夹的目录下，输入 apm install
+报错也没关系
+step4
+打开atom看看少那个 moduls，打开到插件目录下 输入 npm install 少的文件
+如果继续报错，继续 npm install

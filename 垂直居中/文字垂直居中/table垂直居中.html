@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			background-color: #ccc;
+		}
+		
+		.main{
+			width: 35%;
+			height: 35%;
+			background-color: #425a6c;
+			margin: auto;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			right: 0px;
+			bottom: 0px;
+			text-align: center;
+			display: table;/*父元素用display：table*/
+		}
+		span{
+			color: #fff;
+			font-size: 3em;
+			display: table-cell;
+			vertical-align: middle;
+			/* 父元素用display：table，要实现垂直居中就可以设置子元素为table-cell，并且使用vertical-align：middle； */
+		}
+
+	</style>
+</head>
+<body>	
+	<div class="main">
+		<span>hello</span>
+		<span>world</span>	
+	</div>
+</body>
+</html>

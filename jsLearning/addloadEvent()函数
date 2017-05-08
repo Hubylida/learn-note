@@ -1,0 +1,21 @@
+addLoadEvent()
+window.onload只能在页面加载完成后执行一个函数
+window.onload=firstfunction;
+window.onload=secondfunction;
+每个处理函数只能绑定一条指令，secondfunction会替代firstfunction函数。
+要做到执行多个函数就要用到这个方法
+function addLoadEvent(func){
+	var oldonload = window.onload;
+	if(typeof window.onload!="function"){
+		window.onload = func;
+	}else{
+		window.onload = function(){
+			oldonload();
+			func();
+		}
+	}
+}
+
+addLoadEvent(firstfunction);
+addLoadEvent(secondfunction);
+addLoadEvent(thirdfunction);

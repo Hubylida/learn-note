@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery-3.2.0.min.js"></script>
+</head>
+<body>
+	<ul class="first">
+		<li class="foo">list item1</li>
+		<li>list item2</li>
+		<li class="bar">list item3</li>
+	</ul>
+	<ul class="second">
+		<li class="foo">list item1</li>
+		<li>list item2</li>
+		<li class="bar">list item3</li>
+	</ul>
+	<p><span>Hello</span>, how are you?</p>
+	<script>
+		$('ul.first').find('.foo').css('background-color','red').end().find('.bar').css('background-color','green');
+		$("p").find("span").css("border","1px solid blue").end().css("border","2px solid red");
+	</script>
+	<!-- 在上面的代码中，首先在链式用法中只在第一个列表中查找样式为 foo 的项目，并将其背景色变成红色。然后 end() 返回调用 find() 之前的状态。因此，第二次 find() 将只会查找 <ul class="first"> 中的 '.bar'，而不是继续在 <li class="foo"> 中进行查找，结果是将匹配到的元素的背景色变成绿色。上述代码的最终结果是，第一个列表中的第 1 和第 3 个列表项的背景色有颜色，而第二个列表中的任何项目都没有背景色。 -->
+</body>
+</html>

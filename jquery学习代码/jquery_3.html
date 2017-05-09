@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery-3.2.0.min.js"></script>
+</head>
+<body>
+	<h1>例子1</h1>
+	<div class="container">
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed 
+  do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+  <br /><br />
+  Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+  laboris nisi ut aliquip ex ea commodo consequat.
+  <br /> <br />
+  Duis aute irure dolor in reprehenderit in voluptate velit 
+  esse cillum dolore eu fugiat nulla pariatur.
+	</div>
+	<script>
+		$('.container').contents().filter(function(){
+			return this.nodeType == 3;
+		}).wrap('<p></p>').end().filter('br').remove();
+	</script>
+	<!-- 此代码首先检索<div class="container">的内容，然后过滤它的文本节点，并且将它被包裹在段落标记内。这是通过测试元素的.nodeType属性。这个DOM属性保存一个数字代码，以显示节点的类型;文本节点使用代码3。再次过滤的内容，这次是<br />元素，这些元素都将被删除。 -->
+</body>
+</html>

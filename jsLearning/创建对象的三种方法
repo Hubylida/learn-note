@@ -1,0 +1,33 @@
+工厂模式
+function f(name,age){
+	var o=new Object();
+	o.name=name;
+	o.age=age;
+	o.getName=function (){
+		return this.name;
+	}
+	return 0;
+}
+var obj1=f("hubylida",18);
+
+构造函数
+function F(){
+	this.name="hubylida";
+	this.age=18;
+	this.getName=function (){
+		return this.name;
+	}
+}
+var obj2=new F();
+
+原型对象模式
+function Gf(){
+    Gf.prototype.name = "vivian";
+    Gf.prototype.bar = "c++";
+    Gf.prototype.sayWhat = function(){
+        alert(this.name + "said:love you forever");
+    }
+}
+var gf1 = new Gf();
+gf1.sayWhat();
+var gf2 = new Gf();

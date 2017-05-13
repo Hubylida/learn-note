@@ -1,0 +1,16 @@
+apply:接受两个参数，第一个参数指定了函数体内的this对象的指向，第二个参数为数组或者一个类数组。apply传入的是一个参数数组，也就是将多个参数组合成为一个数组传入，而call则作为call的参数传入（从第二个参数开始）。
+
+
+const obj1 = {
+	name:"hubylida",
+	getName:function (){
+	return this.name;
+	}
+};
+
+const obj2 = {
+	name:"dalibyhu"
+}
+console.log(obj1.getName()); //hubylida
+console.log(obj1.getName.call(obj2)); //dalibyhu
+console.log(obj1.getName.apply(obj2))l//dalibyhu

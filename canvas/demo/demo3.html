@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#example{
+			border: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="example" ></canvas>
+	<script>
+		var example = document.getElementById('example');
+		var ctx = example.getContext('2d');
+		example.width = 250;
+		example.height = 250;
+		ctx.fillStyle="red";
+		ctx.fillRect(50,50,50,50);
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<canvas id="canvas"></canvas>
+	<script>
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext('2d');
+		var lineargradient = ctx.createLinearGradient(0,0,15,150);
+		canvas = document.documentElement.clientWidth;
+		canvas = document.documentElement.clientHeight;
+		lineargradient.addColorStop(0,'white');
+		lineargradient.addColorStop(1, 'black');
+		ctx.fillStyle = lineargradient;
+		ctx.fillRect(0,0,200,200);
+	</script>
+</body>
+</html>

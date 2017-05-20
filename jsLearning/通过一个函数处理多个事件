@@ -1,0 +1,19 @@
+var btn =document.getElementById('myBtn');
+var handler = function(event){
+	switch(event.type){
+	case "click":
+	alert("Clicked");
+	break;
+	case "mouseover":
+	event.target.backgroundColor = "red";
+	break;
+	case "mouseout":
+	event.target.style.backgroundColor = "";
+	break;
+	}
+};
+btn.onclick = handler;
+btn.onmouseover = handler;
+btn.onmouseout = handler;
+
+上面代码实现了为一个btn设置三个绑定事件，不用一个一个绑定，很实用。

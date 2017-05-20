@@ -1,0 +1,83 @@
+fillStyle                                  填充样式
+fillRect (x,y,width,height)                绘制一个填充矩形
+strokeRect(x,y,width,height)               绘制一个矩形的边框
+clearRect(x,y,width,height)                清除指定矩形区域，让清除部分完全透明
+
+绘制路径
+beginPath();                               新建一条路径，生成之后，图形绘制命令被指向到路径上生成路径
+closePath();							   闭合路径之后图形绘制命令又重新指向到上下文中
+stroke();							       通过线条来绘制图形轮廓
+fill();                                    通过填充路径的内容区域生成实心的图形
+移动笔触
+moveTo(x,y)                                将笔触移动到指定的坐标x及y上
+线
+lineTo(x,y)                                在定了moveTo后，x,y表示终点的坐标
+可以用向量的概念来理解，moveTo是起点，lineTo是终点
+圆弧
+arc(x,y,radius,startAngle,endAngle,anticlockwise)
+画一个以(x,y)为圆心的以radius为半径的圆弧，从startAngle到endAngle结束，按照anticlockwise给定的方向（默认认为是顺时针）生成。
+true: 逆时针
+flase：顺时针
+fillStyle = color
+设置你图形的填充颜色
+strokeStyle = color
+设置图形轮廓的颜色
+color可以是颜色名，#，rgb，rgba，加引号
+globalAlpha = value;
+所有属性的透明度
+value 从0.0到1.0
+lineWidth =value;
+设直线条宽度
+lineCap =type;
+设置线条末端样式  默认butt 还有round,square
+lineJoin =type;
+设置线条与线条接合处的样式 默认是miter,还有round,bevel
+miterLimit = value
+限制当两条线相交时交接处最大长度；所谓交接处长度（斜接长度）是指线条交接处内角顶点到外角顶点的长度
+getLineDash()
+返回一个包含当前虚线样式，长度为非负偶数的数组。
+setLineDash(segments)
+设置当前虚线样式。接受一个数组，来指定线段与间隙的交替
+lineDashOffset = value
+设置虚线样式的起始偏移量。
+createLinearGradient(x1,y1,x2,y2)
+渐变的起点 (x1,y1) 与终点 (x2,y2)
+createlinearGradient(x1,y1,r1,x2,y2,r2);
+createRadialGradient 方法接受 6 个参数，前三个定义一个以 (x1,y1) 为原点，半径为 r1 的圆，后三个参数则定义另一个以 (x2,y2) 为原点，半径为 r2 的圆
+gradient.addColorStop(position, color)
+addColorStop 方法接受 2 个参数，position 参数必须是一个 0.0 与 1.0 之间的数值，表示渐变中颜色所在的相对位置。例如，0.5 表示颜色会出现在正中间。color 参数必须是一个有效的 CSS 颜色值（如 #FFF， rgba(0,0,0,1)，等等）。
+var lineargradient = ctx.createLinearGradient(0,0,150,150);
+lineargradient.addColorStop(0,'white');
+lineargradient.addColorStop(1,'black');
+
+fill('evenodd');
+填充规则evenodd，类似clearRect(),可以清理出一个眼睛一样的东西。
+两个同心圆之间填充。
+
+save()restore()
+save 和 restore 方法是用来保存和恢复 canvas 状态的，都没有参数。Canvas 的状态就是当前画面应用的所有样式和变形的一个快照。
+Canvas状态存储在栈中，每当save()方法被调用后，当前的状态就被推送到栈中保存。一个绘画状态包括：
+
+当前应用的变形（即移动，旋转和缩放，见下）
+strokeStyle, fillStyle, globalAlpha, lineWidth, lineCap, lineJoin, miterLimit, shadowOffsetX, shadowOffsetY, shadowBlur, shadowColor, globalCompositeOperation 的值
+当前的裁切路径（clipping path），会在下一节介绍
+你可以调用任意多次 save 方法。
+
+每一次调用 restore 方法，上一个保存的状态就从栈中弹出，所有设定都恢复
+transform(m11, m12, m21, m22, dx, dy)
+基于自身参数的矩阵
+m11 m21 dx
+m12 m22 dy
+0   0   1
+m11 :水平方向的缩放
+m12 :水平方向的偏移
+m21 :竖直方向的偏移
+m22 :竖直方向的缩放
+dx  :水平方向的移动
+dy  :竖直方向的移动
+移动translate(dx,dy)
+dx:水平方向上的偏移，dy:竖直方向上的偏移
+缩放scale(sx,sy)
+sx:水平方向上的缩放因子
+sy:竖直方向上的缩放因子
+

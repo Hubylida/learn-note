@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#example{
+			border: 1px solid green;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="example"></canvas>
+	<script>
+		var example = document.getElementById('example');
+		var ctx = example.getContext('2d');
+		example.width = 300;
+		example.height = 300;
+		ctx.beginPath();
+		ctx.moveTo(40,40);
+		ctx.lineTo(90,40);
+		ctx.lineTo(40,90);
+		ctx.closePath();
+		ctx.stroke();
+
+		ctx.beginPath();
+		ctx.moveTo(100,40);
+		ctx.lineTo(150,40);
+		ctx.lineTo(150,90);
+		ctx.fill();
+		ctx.stroke();
+
+		ctx.beginPath();
+		ctx.arc(200,200,30,0,Math.PI*2,true);
+		ctx.fill();
+
+		cxt.beginPath();
+		ctx.arc(200,200,20,0,Math.PI*2,true);
+		ctx.fill();
+	</script>
+</body>
+</html>

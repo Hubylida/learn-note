@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<canvas id="canvas"></canvas>
+	<script>
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext('2d');
+		canvas.width = document.documentElement.clientWidth;
+		canvas.height = document.documentElement.clientHeight;
+		var speed = 3;
+		/*function rect(n){
+
+			ctx.save();
+			ctx.beginPath();
+			ctx.fillStyle = "#e38383";
+			ctx.fillRect(100,50,60,60);
+			ctx.fill();
+			ctx.restore();
+		}*/
+		var box = {
+			x:0,
+			y:0,
+			color:'#e38388',
+			draw:function(n){
+				ctx.fillStyle = this.color;
+				ctx.beginPath();				
+				ctx.fillRect(this.x,this.y,60,60);
+				ctx.clearRect(0,0,canvas.width,canvas.height);
+				ctx.fillRect(this.x,this.y+n,60,60);
+				ctx.closePath();
+				ctx.fill();
+			}
+		};
+		(function draw(){
+			window.requestAnimationFrame(draw,canvas);
+			box.draw(speed);		
+			if(speed>canvas.height-60){
+				speed = 0;
+			}
+			speed+=3;
+			
+		}());
+	</script>
+</body>
+</html>

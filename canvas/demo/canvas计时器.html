@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			width: 100%;
+			background-color: #ddd;
+		}
+		#canvas{
+		/* 	width: 400px;
+		height: 500px */;
+		}
+		#start,#stop{
+
+			display: inline-block;
+			width: 150px;
+			height: 150px;
+			border-radius: 50%;
+			border: 2px solid;
+			border-color: rgba(21,21,21,0.5);
+		}
+		#start{
+			margin-left: 40px;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="canvas"></canvas>
+	<div id="start"></div>
+	<div id="stop"></div>
+	<script>
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext('2d');
+		 canvas.width = document.documentElement.clientWidth;
+		 canvas.height = document.documentElement.clientHeight/2;
+		 function blueCircle(){
+		 	ctx.beginPath();
+			ctx.lineWidth = 15;
+			ctx.arc(470,500,200,0,Math.PI*2);
+			ctx.strokeStyle = "#49f";
+			ctx.stroke();
+		 }
+		
+		function text(n){
+		ctx.save();
+		ctx.fillStyle = "#f47c7c";
+		ctx.font = "100px Arial";
+		ctx.textAlign = "center";
+		ctx.textBaseline = "middle";
+		ctx.fillText("n",390,500);
+		}
+		blueCircle();
+		text("hello");
+	</script>
+</body>
+</html>

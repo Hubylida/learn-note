@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<canvas id="example"></canvas>
+	<script>
+		var example = document.getElementById('example');
+		var ctx = example.getContext('2d');
+		var i,j;
+		for (i=0;i<6;i++){
+			for(j=0;j<6;j++){
+				ctx.strokeStyle = 'rgb(0,' + Math.floor(255-i*42.5)+','+Math.floor(255-j*42.5) + ')';
+				ctx.beginPath();
+				ctx.arc(12.5+j*25,12.5+i*25,10,0,Math.PI*2);
+				ctx.stroke();
+			}
+		}
+</script>
+</body>
+</html>

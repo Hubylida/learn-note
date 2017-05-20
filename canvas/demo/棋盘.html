@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>棋盘</title>
+	<style>
+		body{
+			background-color: #ccc;
+		}
+		#canvas{
+			border: 1px solid #000;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+		}
+	</style>
+</head>
+<body>
+	<canvas id="canvas"></canvas>
+	<script>
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext('2d');
+		canvas.width = document.documentElement.clientWidth;
+		canvas.height = document.documentElement.clientHeight;
+		for(var i=0;i<10;i++){
+			ctx.beginPath();
+			ctx.moveTo(100,100+i*35);
+			ctx.lineTo(415,100+i*35);
+			ctx.stroke();
+		}
+			for(var j=0;j<10;j++){
+				ctx.beginPath();
+				ctx.moveTo(100+j*35,100);
+				ctx.lineTo(100+j*35,415);
+				ctx.stroke();
+			}
+		ctx.beginPath();
+		ctx.arc(100+70,100+70,5,0,Math.PI*2);
+		ctx.arc(100+245,100+70,5,0,Math.PI*2);
+		ctx.moveTo(100+75,100+245);
+		ctx.arc(100+70,100+245,5,0,Math.PI*2);
+
+		ctx.arc(100+245,100+245,5,0,Math.PI*2);
+		/*ctx.fill();*/
+		ctx.fill();
+	</script>
+</body>
+</html>
